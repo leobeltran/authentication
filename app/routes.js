@@ -1,29 +1,52 @@
-module.exports = function(app) {
-  // show the home page
+module.exports = function(app, passport) {
+  // Show the home page
   app.get('/', (req, res) => {
     res.render('index.ejs');
   });
 
-  app.get('/profile', (req, res) =>  {
+  //Show the user profile
+  app.get('/profile', isLoggedIn, (req, res) =>  {
     res.render('profile.js', {
       user: req.user
     });
   });
 
-// Local strategy
+// Sign out of profile - redirect to root '/'
+app.get('/logout', (req, res) => {
+  res.redirect('/');
+});
+
+// Local strategy - Login / show log in form
 app.get('/login', (req, res) =>{
   res.render('login.ejs', {message: req.flash('loginMessage')});
 });
 
-// signup//Show the form
+// Authenticating login credentials
+app.post('/login', passport.authenticate('local-login', {
+  successRedirect: '/profile',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
+
+// Local strategy - Sign up / show sign up form
 app.get('/signup', (req, res) =>{
   res.render('signup.ejs', {message: req.flash('signupMessage')});
 });
 
-// sign'em up
+// Create new User - signem up
 app.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/profile',
   failureRedirect: '/signup',
   failureFlash: true
 }));
+
+
+}
+
+// Check if user is signed in - authenticate them
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/');
 }

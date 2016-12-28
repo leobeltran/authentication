@@ -1,8 +1,12 @@
 const LocalStrategy = require('passport-local').Strategy;
 
-// Load user model
+// Load local user model
 const User = require('../app/models/user');
+// Load social media
+const configAuth = require('./auth')
 
+
+// Authenticating User / creating User / Authenticating SM User
 module.exports = function(passport) {
 
 // Serialize the user for a session
@@ -16,6 +20,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+// Local login
 passport.use('local-login', new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
@@ -67,7 +72,7 @@ passport.use('local-signup', new LocalStrategy({
             if (user) {
               return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
             } else {
-              // crpassport = require('passport')eate new user
+              // create new user
               const newUser = new User();
               newUser.local.email = email;
               newUser.local.password = newUser.generateHash(password);

@@ -35,7 +35,7 @@ app.use(passport.session()); // persistence between logins
 app.use(flash());
 
 // routes
-require('./app/routes')(app);
+require('./app/routes')(app, passport);
 
 
 app.listen(PORT, () => {
