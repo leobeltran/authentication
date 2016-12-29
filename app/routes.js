@@ -5,8 +5,8 @@ module.exports = function(app, passport) {
   });
 
   //Show the user profile
-  app.get('/profile', isLoggedIn, (req, res) =>  {
-    res.render('profile.js', {
+  app.get('/homepage', isLoggedIn, (req, res) =>  {
+    res.render('homepage.ejs', {
       user: req.user
     });
   });
@@ -23,7 +23,7 @@ app.get('/login', (req, res) =>{
 
 // Authenticating login credentials
 app.post('/login', passport.authenticate('local-login', {
-  successRedirect: '/profile',
+  successRedirect: '/homepage',
   failureRedirect: '/login',
   failureFlash: true
 }));
@@ -39,6 +39,16 @@ app.post('/signup', passport.authenticate('local-signup', {
   failureRedirect: '/signup',
   failureFlash: true
 }));
+
+// Report an incident page
+app.get('/report', (req, res) =>{
+  res.render('report.ejs');
+});
+
+// Report an incident page
+app.get('/reset', (req, res) =>{
+  res.render('reset.ejs');
+});
 
 
 }

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div class="container">
+
+  <div class="wrapper">
+
+    <tabset>
+        <tab heading="Leaders Near You">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <input ng-model="query" style="width:400px" type="text" class="form-control" placeholder="Search...">
+                </span>
+            </div>
+            <div class="leaders">
+                <div class="row">
+                    <div class="col-sm-2 col-md-4" ng-repeat="people in peoples | filter: query | orderBy: 'name.last'">
+                        <div class="thumbnail">
+                            <img style="width:250px;height:250px;" src={{people.picture}} alt="{{people.name.fist}} {{people.name.last}}">
+                            <div class="caption">
+                                <h3>{{people.name.first}}
+                                    {{people.name.last}}</h3>
+                                <p>{{people.email}}</p>
+                                <p>
+                                    <a href="#/{{people.index}}" class="btn btn-primary" role="button">More Info</a>
+                                    <a class="btn btn-default" role="button">Contact</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </tab>
+
+        <!-- Register Form Tab -->
+
+        <tab heading="Register Community" class="main">
+
+                <div class="container" id="register">
+                    <div class="header">
+                        <h2>Register Your Community</h2>
+                        <p>
+                            By Registering your comminuty Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                    <form novalidate>
+                      <h2>Register Your Community</h2>
+                      <formly-form model="rf.register" fields="rf.registerFields" form="rf.registerForm">
+                        <button type="submit" class="btn btn-primary" ng-disabled="vm.registerForm.$invalid">Submit</button>
+                      </formly-form>
+                    </form>
+
+                </div>
+
+        </tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- About -->
+        <tab heading="About">
+                <div class="title" id="about"></div>
+                <div class="about">
+                    <small>ABOUT</small>
+                    <h2>United Communities Association</h2>
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor
+                        sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </span>
+
+                    <hr>
+                    <br><br>
+
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" style="width:100px;height:100px;" src="/img/community-awards.jpg" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Community Award Winner</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" style="width:90px;height:90px;" src="/img/CommunitasAward.png" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Communidades Unidas</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object" style="width:90px;height:90px;" src="/img/excellence.jpg" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Humanitarian Recognition</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+        </tab>
+    </tabset>
+
+  </div>
+
+</div>
+
+  </body>
+</html>

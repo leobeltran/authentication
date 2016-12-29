@@ -1,7 +1,7 @@
 {
-  "name": "authentication",
+  "name": "UCAComplete",
   "version": "1.0.0",
-  "description": "",
+  "description": "United Communities Association",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js"
@@ -19,6 +19,13 @@
     "mongoose": "^4.7.4",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "angular-formly" : "^8.4.0",
+    "angular-formly-templates-bootstrap" : "*",
+    "api-check" : "*",
+    "bootstrap" : "*",
+    "angular": "^1.5.8",
+    "browser-sync": "^2.17.5",
+    "dev": "^0.1.3"
   }
 }

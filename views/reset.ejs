@@ -15,8 +15,8 @@
     #login{
       background-color: rgba(6, 123, 159, 0.1);
       height: 55rem;
-      margin-top: 15rem;
-      padding-top: 5em;
+      margin-top: 5rem;
+      padding-top: 3em;
     }
 
   </style>
@@ -24,33 +24,27 @@
   <body>
     <div class="container">
 
-      <div class="col-sm-4 col-sm-offset-4 text-center" id="login">
+      <div class="col-sm-6 col-sm-offset-3 text-center" id="login">
         <img src="http://sonalibankers.com/wp-content/uploads/2015/02/w3c-community-logo.png" width="70" height="70"  alt="UCA">
 
-          <h1><span class="fa fa-sign-in"></span> Login</h1>
+          <h1>Reset Password</h1>
           </br></br>
 
-          <% if (message.length > 0) { %>
-          <div class="alert alert-danger">
-            <%= message %>
-          </div>
-         <% } %>
-
-         <!--  Login form -->
+             <!--  Reset password form -->
       <form action="/login" method="post">
             <div class="form-group">
               <label>Email</label>
               <input class="form-control" type="text" name="email" required>
             </div>
             <div class="form-group">
-              <label>Password</label>
-              <input class="form-control" type="password" name="password" size="25" required>
+              <label> Confirm Email</label>
+              <input class="form-control" type="text" name="email" required>
             </div>
-            <button class="btn btn-warning btn-lg" type="submit">Login</button>
+
+            <button class="btn btn-warning btn-lg" type="submit">Reset Password</button>
           </br></br>
             <div class="row text-right">
-              <a href="/reset">Forgotten password? </a></br>
-              <a href="/signup">Need to register? </a></br>
+              <a href="/">Return Home </a></br>
             </div>
       </form>
       </div>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Report Incident</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  </head>
+
+  <style media="screen">
+
+
+
+    #report{
+      background-color: rgba(6, 123, 159, 0.1);
+      height: 85rem;
+      margin-top: 5rem;
+      padding-top: 2em;
+    }
+
+  </style>
+
+  <body>
+
+    <div class="container">
+
+      <div class="col-sm-6 col-sm-offset-3 text-center" id="report">
+        <img src="http://sonalibankers.com/wp-content/uploads/2015/02/w3c-community-logo.png" width="70" height="70"  alt="UCA">
+
+          <h1><span class="fa fa-bullhorn"></span> Report Incident</h1>
+          </br>
+          <h4>Witness to an on going incident? Suspicious ativity? Get the word out by reporting anonymously to the respecting community.</br> Stay alert! Stay alive!</h4>
+        </br>
+         <!--  Report form -->
+      <form action="/login" method="post">
+
+            <div class="form-group row">
+              <label for="example-datetime-local-input" class="col-xs-2 col-form-label">Date/time incident</label>
+              <div class="col-xs-10">
+                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="example-datetime-local-input" class="col-xs-2 col-form-label">Date/time reporting</label>
+              <div class="col-xs-10">
+                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="comment">Information:</label>
+              <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+
+            <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+            <form class="text-center" action="/avatar_upload.php" method="post" enctype="multipart/form-data">
+                <div class="kv-avatar center-block" style="width:200px">
+                    <input id="avatar-1" name="avatar-1" type="file" class="file-loading">
+                </div>
+            </form>
+
+          </br>
+            <button class="btn btn-warning btn-lg" type="submit">Report</button>
+      </form>
+
+
+
+    </br></br>
+        <p><span style="color:#FF0000">ATTENTION:</span> Stay away from danger! By using this report feature you can save a life, please use caution and report from a safe place/distance.
+        Fill as much information as possible, the proper authorities will be contacted (batman). Thank You for keeping a sharp eye and helping to keep your neighbor's safe.</p>
+      </div>
+
+      <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker8').datetimepicker({
+                    icons: {
+                        time: "fa fa-clock-o",
+                        date: "fa fa-calendar",
+                        up: "fa fa-arrow-up",
+                        down: "fa fa-arrow-down"
+                    }
+                });
+            });
+        </script>
+    </div>
+
+
+
+  </body>
+
+</html>
