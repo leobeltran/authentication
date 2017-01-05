@@ -5,72 +5,178 @@
     <title>United Communities Association</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/master.css">
   </head>
 
   <style media="screen">
-    .welcome{
-      height: 30rem;
+
+    .container{
+      height: 50em;
     }
 
+    .footer-bs{
+      background-color: rgb(9, 70, 89);
+      padding: 5em;
+      color: white;
 
-    #navbar{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 3rem;
     }
 
+    .navbar{
+      position: fixed;
+    }
 
+    .list{
+      color:yellow;
+    }
+
+    .list a{
+      color: white;
+    }
   </style>
 
   <body>
 
-    <div class="container">
-      <div class="row" id="navbar">
-        <div class="logo">
-          <img src="http://sonalibankers.com/wp-content/uploads/2015/02/w3c-community-logo.png" width="100" height="100"  alt="UCA" class="animated slideInLeft">
-        </div>
-
-        <div class="nav">
-          <a href="/login" class="btn btn-success"><span class="fa fa-user"> Member Login</a>
-          <a href="/report" class="btn btn-danger"><span class="fa fa-bullhorn"> Report</a>
-        </div>
-      </div>
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-logo">
+      <!-- logo -->
+    <a class="navbar-brand" href="#"><img alt="alternative text" style="width:40px; height:40px" src="https://s-media-cache-ak0.pinimg.com/originals/28/f8/04/28f80414d1ce89c59cb3c2775843461e.png"></a>
+  </div>
+  <div class="collapse navbar-collapse animated fadeIn" id="bs-example-navbar-collapse-1">
 
 
-      <hr>
 
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b> Login</b> <span class="caret"></span></a>
+      <ul id="login-dp" class="dropdown-menu">
+      <li>
+         <div class="row">
+            <div class="col-md-12">
+              <!-- Login -->
+              <div class="social-buttons">
+                  <div class="iconSpecial"><i class="glyphicon glyphicon-user"></i>Login</div>
+              </div>
+               <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                  <div class="form-group">
+                     <label class="sr-only" for="exampleInputEmail2">login</label>
+                     <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Entrar Usuário" required>
+                  </div>
+                  <div class="form-group">
+                     <label class="sr-only" for="exampleInputPassword2">Senha</label>
+                     <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                           <div class="help-block text-right"><a href="">Esquecí minha senha ?</a></div>
+                  </div>
+                  <div class="form-group">
+                     <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                  </div>
+                  <div class="checkbox text-dark">
+                     <label>
+                     <input type="checkbox"> Manter-me Logado
+                     </label>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </li>
+    </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+
+
+
+
+
+
+
+        <div class="container">
 
       <div class="welcome text-center">
         <img src="http://www.wpneighbors.com/images/cnip.png" alt="United Communities">
       </div>
 
-      <div class="col-sm-6 col-sm-offset-3">
-        <div class="text-center">
-          <form action="/signup" method="post">
-            <div class="form-group">
-              <input class="form-control" placeholder="First Name" type="text" name="firstname">
-            </div>
-            <div class="form-group">
-              <input class="form-control" placeholder="Last Name" type="text" name="lastname">
-            </div>
-            <div class="form-group">
-              <input class="form-control" placeholder="Email" type="text" name="email">
-            </div>
-            <div class="form-group">
-              <input class="form-control" placeholder="Password" type="password" name="password">
-            </div>
-            <div class="form-group">
-              <input class="form-control" placeholder="Confirm Password" type="password" name="password">
-            </div>
-            <button class="btn btn-warning btn-lg" type="submit">Sign up</button>
-          </form>
-        </div>
+      <div class="col-sm-6 col-sm-offset-3 text-center">
+
+        <form action="/signup" method="post">
+          <div class="form-group">
+            <input class="form-control" placeholder="First Name" type="text" name="firstname">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Last Name" type="text" name="lastname">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Email" type="text" name="email">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Password" type="password" name="password">
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder="Confirm Password" type="password" name="password">
+          </div>
+          <button class="btn btn-warning btn-lg" type="submit">Sign up</button>
+        </form>
+
       </div>
     </div>
+
+
+
+    <!--- Footer ------------>
+    <footer class="footer-bs">
+
+      <div class="row" style="text-align:center;">
+        <h1>United Communities Association</h1>
+      </div>
+
+        <div class="row">
+        	<div class="col-md-3 footer-brand animated fadeInLeft">
+                <h2>Working <i style="color:green">Together</i>, Improving <i style="color:orange">Our</i> Communities</h2>
+            </div>
+        	<div class="col-md-4 footer-nav animated fadeInUp">
+            	<h4>Menu —</h4>
+            	<div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="#">Local Classified Ads</a></li>
+                        <li><a href="#">Nearby Community</a></li>
+                    </ul>
+                </div>
+            	<div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        	<div class="col-md-2 footer-social animated fadeInDown">
+            	<h4>Follow Us</h4>
+            	<ul class="list">
+                	<li><a href="#"><span class="fa fa-facebook"> Facebook</a></li>
+                	<li><a href="#"><span class="fa fa-twitter"> Twitter</a></li>
+                	<li><a href="#"><span class="fa fa-instagram"> Instagram</a></li>
+                </ul>
+            </div>
+        	<div class="col-md-3 footer-ns animated fadeInRight">
+            	<h4>Newsletter</h4>
+                <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+                <p>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search for...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                      </span>
+                    </div><!-- /input-group -->
+                 </p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
 
   </body>
 </html>
