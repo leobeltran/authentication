@@ -1,113 +1,103 @@
 const LocalStrategy = require('passport-local').Strategy;
-
-// Load local user model
+// Load the user model
 const User = require('../app/models/user');
-// Load social media
-const configAuth = require('./auth')
+// Load the auth config
+const configAuth = require('./auth');
 
-
-// Authenticating User / creating User / Authenticating SM User
-module.exports = function(passport) {
-
-// Serialize the user for a session
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-// Deserialize User
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user)
+module.exports = function (passport) {
+  // Serialize the user for sessio
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
   });
-});
-
-// Local login
-passport.use('local-login', new LocalStrategy({
-  usernameField: 'email',
-  passwordField: 'password',
-  passReqToCallback: true
-},
-function(req, email, password, done) {
-  if (email)
-    email = email.toLowerCase();
-
-  // Async
-  process.nextTick(function() {
-    User.findOne({'local.email' : email}, (err, user) => {
-      if (err) {
-        return done(err);
-      }
-
-      if (!user) {
-        return done(null, false, req.flash('loginMessage', 'No user found.'));
-      }
-
-      if (!user.validPassword(password)) {
-         return done(null, false, req.flash('loginMessage', 'Ooops! Wrong Password.'));
-      }
-
-      return done(null, user);
+  // Deserialize user
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function (err, user) {
+      done(err, user);
     });
-   });
- }));
+  });
 
-// Local signup
-passport.use('local-signup', new LocalStrategy({
-  usernameField: 'email',
-  passwordField: 'password',
-  passReqToCallback: true
+  // Local login
+  passport.use('local-login', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
   },
   function(req, email, password, done) {
-      if (email) {
-        email = email.toLowerCase();
-      }
-
-      // Async
-      process.nextTick(function() {
-        if (!req.user) {
-          User.findOne({'local.email' : email}, (err, user) => {
-            if (err) {
-              return done(err);
-            }
-            // if user exist, send message that it exist
-            if (user) {
-              return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-            } else {
-              // create new user
-              const newUser = new User();
-              newUser.local.email = email;
-              newUser.local.password = newUser.generateHash(password);
-
-              newUser.save((err) => {
-                if (err) {
-                  return done(err);
-                }
-                return done(null, newUser);
-              });
-            }
-          });
-        } else if (!req.user.local.email) {
-          User.findOne({'local-email' : email}, (err, user) => {
-            if (err) {
-              return done(err);
-            }
-
-            if (user) {
-              return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
-            } else {
-              const user = req.user;
-              user.local.email = email;
-              user.local.password = user.generateHash(password);
-              user.save((err) => {
-                if (err) {
-                  return done(null, user);
-                }
-              });
-            }
-          });
-        } else {
-          return done(null, req.user);
+    if (email) {
+      email = email.toLowerCase();
+    }
+    // Async
+    process.nextTick(function() {
+      User.findOne({'local.email' : email }, (err, user) => {
+        if (err) {
+          return done(err);
         }
+        if (!user) {
+          return done(null, false, req.flash('loginMessage', 'No user found!'));
+        }
+        console.log(password);
+        if (!user.validPassword(password)) {
+          return done(null,false, req.flash('loginMessage', 'Ooops! Wrong password.'));
+        }
+        return done(null, user);
       });
-  }));
+    });
+}));
 
+  passport.use('local-signup', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+  },
+  function(req, email, password, done) {
+    if (email) {
+      email = email.toLowerCase();
+    }
+    // Async
+    process.nextTick(function() {
+      if (!req.user) {
+        User.findOne({ 'local.email': email }, (err, user) => {
+          if (err) {
+            return done(err);
+          }
+          if (user) {
+            return done(null, false, req.flash('signupMessage', 'This email is already taken.'));
+          } else {
+            // create user
+            const newUser = new User();
+            newUser.local.email = email;
+            newUser.local.password = newUser.generateHash(password);
+
+            newUser.save((err) => {
+              if (err) {
+                return done(err);
+              }
+              return done(null, newUser);
+            });
+          }
+        });
+      } else if (!req.user.local.email) {
+        User.findOne({'local-email': 'email'}, (err, user) =>{
+          if (err) {
+            return dauthenticateone(err);
+          }
+          if (user) {
+            return done(null,false, req.flash('loginMessage', 'This email is already taken.'));
+          } else {
+            const user = req.user;
+            user.local.email = email;
+            user.local.password = user.generateHash(password);
+            user.save((err) => {
+              if (err) {
+                return done(err);
+              }
+              return done(null, user);
+            });
+          }
+        });
+      } else {
+        return done(null, req.user);
+      }
+    });
+  }));
 }

@@ -35,7 +35,7 @@ app.get('/signup', (req, res) =>{
 
 // Create new User - signem up
 app.post('/signup', passport.authenticate('local-signup', {
-  successRedirect: '/profile',
+  successRedirect: '/homepage',
   failureRedirect: '/signup',
   failureFlash: true
 }));

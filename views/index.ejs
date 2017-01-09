@@ -14,15 +14,19 @@
 
     .container{
       height: 50em;
+      margin-top: 1.8em;
     }
 
     .footer-bs{
       background-color: rgb(9, 70, 89);
       padding: 5em;
       color: white;
-
     }
 
+    .navlogin{
+      height: 4em;
+      padding: 1em;
+    }
     .navbar{
       position: fixed;
     }
@@ -34,93 +38,55 @@
     .list a{
       color: white;
     }
+
+    .form{
+      margin-top: 5em;
+    }
+
+    .welcome{
+      background-size: contain;
+    }
   </style>
 
   <body>
 
     <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="navbar-logo">
-      <!-- logo -->
-    <a class="navbar-brand" href="#"><img alt="alternative text" style="width:40px; height:40px" src="https://s-media-cache-ak0.pinimg.com/originals/28/f8/04/28f80414d1ce89c59cb3c2775843461e.png"></a>
-  </div>
-  <div class="collapse navbar-collapse animated fadeIn" id="bs-example-navbar-collapse-1">
+
+      <div class="navlogin text-right">
+       <a href="/login" class="btn btn-success"><span class="fa fa-user"> Member Login</a>
+       <a href="/report" class="btn btn-danger"><span class="fa fa-bullhorn"> Report</a>
+     </div>
+    </nav>
 
 
-
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b> Login</b> <span class="caret"></span></a>
-      <ul id="login-dp" class="dropdown-menu">
-      <li>
-         <div class="row">
-            <div class="col-md-12">
-              <!-- Login -->
-              <div class="social-buttons">
-                  <div class="iconSpecial"><i class="glyphicon glyphicon-user"></i>Login</div>
-              </div>
-               <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                  <div class="form-group">
-                     <label class="sr-only" for="exampleInputEmail2">login</label>
-                     <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Entrar Usuário" required>
-                  </div>
-                  <div class="form-group">
-                     <label class="sr-only" for="exampleInputPassword2">Senha</label>
-                     <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                           <div class="help-block text-right"><a href="">Esquecí minha senha ?</a></div>
-                  </div>
-                  <div class="form-group">
-                     <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                  </div>
-                  <div class="checkbox text-dark">
-                     <label>
-                     <input type="checkbox"> Manter-me Logado
-                     </label>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </li>
-    </ul>
-      </li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
-
-
-
-
-
-
-
-
-        <div class="container">
+    <div class="container">
 
       <div class="welcome text-center">
         <img src="http://www.wpneighbors.com/images/cnip.png" alt="United Communities">
       </div>
 
-      <div class="col-sm-6 col-sm-offset-3 text-center">
+      <div class="col-sm-6 col-sm-offset-3 text-center form">
 
-        <form action="/signup" method="post">
-          <div class="form-group">
-            <input class="form-control" placeholder="First Name" type="text" name="firstname">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Last Name" type="text" name="lastname">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Email" type="text" name="email">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Password" type="password" name="password">
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder="Confirm Password" type="password" name="password">
-          </div>
-          <button class="btn btn-warning btn-lg" type="submit">Sign up</button>
-        </form>
+        <h1>Sign Up</h1>
+        </br></br>
 
-      </div>
+           <!--  Signup form -->
+      <form action="/signup" method="post">
+            <div class="form-group">
+              <input class="form-control" type="text" name="email" placeholder="email" required>
+            </div>
+            <div class="form-group">
+
+              <input class="form-control" type="password" name="password" placeholder="password" size="25" required>
+            </div>
+            <div class="form-group">
+
+              <input class="form-control" type="password" placeholder="confirm password" size="25" required>
+            </div>
+            <button class="btn btn-warning btn-lg" type="submit">Sign Up</button>
+      </form>
+
+    </div>
     </div>
 
 
